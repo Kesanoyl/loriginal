@@ -22,10 +22,11 @@ const PUBLIC_URL = process.env.PUBLIC_URL || `http://localhost:${PORT}`;
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_dummy');
 
 // ─── OneSignal (notifications push) ───────────────────────
-const ONESIGNAL_APP_ID = process.env.ONESIGNAL_APP_ID || 'faf2ece8-01f9-431d-97f0-e91e039baad8';
+// Renseigner ONESIGNAL_APP_ID + ONESIGNAL_REST_API_KEY (vars d'env Render) pour activer.
+const ONESIGNAL_APP_ID = process.env.ONESIGNAL_APP_ID || '';
 const ONESIGNAL_REST_KEY = process.env.ONESIGNAL_REST_API_KEY || '';
 async function sendPush(phone, title, message) {
-  if (!ONESIGNAL_REST_KEY || !phone) return;
+  if (!ONESIGNAL_APP_ID || !ONESIGNAL_REST_KEY || !phone) return;
   try {
     const res = await fetch('https://onesignal.com/api/v1/notifications', {
       method: 'POST',
