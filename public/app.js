@@ -174,9 +174,54 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounters();
   initParticles();
   updateCartUI();
+  initPush();
   // Fiabilise le ciblage des notifs : lie l'abonnement push au numéro déjà connu
   try{ const sc=JSON.parse(localStorage.getItem('loriginal_customer')||'null'); if(sc&&sc.phone){(window.OneSignalDeferred=window.OneSignalDeferred||[]).push(o=>o.login(sc.phone.replace(/\s/g,''))); } }catch(e){}
 });
+
+// ═══ NOTIFICATIONS PUSH ═══════════════════════════════════════
+// La cloche OneSignal ne redemande rien quand l'appareil croit être déjà
+// abonné (permission encore accordée côté iOS alors que l'abonnement a été
+// supprimé côté serveur). On expose donc un bouton explicite : il redemande
+// la permission ET force le ré-abonnement (optIn), ce qui répare ce cas.
+function initPush(){
+  const btn=$('push-optin'), state=$('push-state');
+  if(!btn) return;
+  const show=(txt,showBtn)=>{
+    if(state){ state.textContent=txt; state.hidden=!txt; }
+    btn.hidden=!showBtn;
+  };
+  (window.OneSignalDeferred=window.OneSignalDeferred||[]).push(async (OneSignal)=>{
+    const sync=async()=>{
+      try{
+        const sub=OneSignal.User.PushSubscription;
+        const abonne = !!sub.optedIn && !!sub.id;
+        if(abonne) show('🔔 Notifications activées sur cet appareil.',false);
+        else show('',true);
+        return abonne;
+      }catch(e){ show('',true); return false; }
+    };
+    // Auto-réparation : permission déjà accordée mais plus d'abonnement → on réinscrit
+    try{
+      if(OneSignal.Notifications.permission && !OneSignal.User.PushSubscription.id){
+        await OneSignal.User.PushSubscription.optIn();
+      }
+    }catch(e){}
+    await sync();
+    try{ OneSignal.User.PushSubscription.addEventListener('change',sync); }catch(e){}
+
+    btn.addEventListener('click',async()=>{
+      btn.disabled=true; const old=btn.textContent; btn.textContent='⏳ Activation...';
+      try{
+        if(!OneSignal.Notifications.permission){ await OneSignal.Notifications.requestPermission(); }
+        await OneSignal.User.PushSubscription.optIn();
+        const ok=await sync();
+        if(!ok) show("Notifications bloquées pour ce site. Réglages iPhone → Notifications → L'Original, puis autorisez-les.",false);
+      }catch(err){ show('Impossible d\'activer les notifications ici ('+err.message+').',true); }
+      btn.disabled=false; btn.textContent=old;
+    });
+  });
+}
 
 // ═══ LOADER ══════════════════════════════════════════════════
 function initLoader() {

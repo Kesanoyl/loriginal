@@ -1621,3 +1621,14 @@ body.scroll-locked {
 .menu-card-emoji { background: #0d0d0d; }
 .hero-food img { background: #0d0d0d; border-color: #0d0d0d; }
 .cart-item-img, .cart-item-thumb { background: #0d0d0d; }
+
+/* ─── Bouton d'activation des notifications (checkout) ────── */
+.push-optin {
+  margin-top: 10px; width: 100%;
+  padding: 11px 16px; border-radius: 100px;
+  background: var(--rojo); color: #fff;
+  font-weight: 700; font-size: 0.9rem;
+  transition: all 0.25s var(--ease-out);
+}
+.push-optin:hover:not(:disabled) { background: var(--rojo-light); }
+.push-optin:disabled { opacity: 0.6; cursor: default; }
