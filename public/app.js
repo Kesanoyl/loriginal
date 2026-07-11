@@ -67,7 +67,7 @@ const MENU = [
   // ── Nos Assiettes (riz maison, frites maison, salade, sauce) ──
   { id:'assiettes-1-viande', cat:'assiettes', name:'Assiette 1 viande', desc:'Servie avec riz maison, frites maison, salade et sauce. 1 viande au choix.', price:13.00, emoji:'🍽️', img:'assiettes-1-viande.jpg', tag:'Populaire', tagClass:'tag-top' },
   { id:'assiettes-2-viandes', cat:'assiettes', name:'Assiette 2 viandes', desc:'Servie avec riz maison, frites maison, salade et sauce. 2 viandes au choix.', price:15.00, emoji:'🍽️', img:'assiettes-1-viande.jpg' },
-  { id:'assiettes-riz-crousty', cat:'assiettes', name:'Riz Crousty', desc:'Riz basmati maison, tenders de poulet, sauce fromagère maison, sauce chili thaï et oignons crispy.', price:10.00, emoji:'🍚' },
+  { id:'assiettes-riz-crousty', cat:'assiettes', name:'Riz Crousty', desc:'Riz basmati maison, tenders de poulet, sauce fromagère maison, sauce chili thaï et oignons crispy.', price:10.00, emoji:'🍚', img:'assiettes-riz-crousty.jpg' },
 
   // ── Nos Cheesy Box ──
   { id:'cheesy-frite', cat:'cheesy', name:'Cheesy Frite', desc:'Frites maison, sauce fromagère maison et lardons de dinde.', price:5.00, emoji:'🧀', img:'cheesy-frite.jpg' },
@@ -90,10 +90,10 @@ const MENU = [
   { id:'boissons-coca-cola', cat:'boissons', name:'Coca-Cola', desc:'Canette 33 cl.', price:1.50, emoji:'🥤', img:'boissons-coca-cola.jpg' },
   { id:'boissons-oasis-pomme-cassis', cat:'boissons', name:'Oasis Pomme Cassis Framboise', desc:'Canette 33 cl.', price:1.50, emoji:'🥤', img:'boissons-oasis-pomme-cassis.jpg' },
   { id:'boissons-oasis-tropical', cat:'boissons', name:'Oasis Tropical', desc:'Canette 33 cl.', price:1.50, emoji:'🥤', img:'boissons-oasis-tropical.jpg' },
-  { id:'boissons-perrier', cat:'boissons', name:'Perrier', desc:'Canette 33 cl.', price:1.50, emoji:'🥤' },
+  { id:'boissons-perrier', cat:'boissons', name:'Perrier', desc:'Canette 33 cl.', price:1.50, emoji:'🥤', img:'boissons-perrier.jpg' },
   { id:'boissons-ice-tea', cat:'boissons', name:'Ice Tea', desc:'Boisson froide à base de thé, 33 cl.', price:1.50, emoji:'🧃', img:'boissons-ice-tea.jpg' },
-  { id:'boissons-capri-sun', cat:'boissons', name:'Capri-Sun', desc:'Poche 20 cl.', price:1.50, emoji:'🧃' },
-  { id:'boissons-redbull', cat:'boissons', name:'Red Bull', desc:'Canette énergisante 25 cl.', price:2.00, emoji:'⚡' },
+  { id:'boissons-capri-sun', cat:'boissons', name:'Capri-Sun', desc:'Poche 20 cl.', price:1.50, emoji:'🧃', img:'boissons-capri-sun.jpg' },
+  { id:'boissons-redbull', cat:'boissons', name:'Red Bull', desc:'Canette énergisante 25 cl.', price:2.00, emoji:'⚡', img:'boissons-redbull.jpg' },
 ];
 
 const CAT_NAMES = {
