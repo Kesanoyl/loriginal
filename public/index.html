@@ -15,21 +15,19 @@
   <link rel="icon" type="image/png" sizes="192x192" href="img/app-icon-192.png" />
   <link rel="apple-touch-icon" href="img/app-icon-180.png" />
   <link rel="manifest" href="manifest.json" />
-  <!-- OneSignal Web Push — désactivé : il faut créer une app OneSignal
-       dédiée à L'Original et coller son App ID ci-dessous, sinon les
-       visiteurs seraient inscrits sur l'app push d'un autre restaurant.
+  <!-- OneSignal Web Push — app « L'Original » (App ID public, la clé REST reste
+       côté serveur en var d'env Render ONESIGNAL_REST_API_KEY). -->
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(async function(OneSignal) {
       await OneSignal.init({
-        appId: "APP_ID_A_CREER",
+        appId: "407703ef-8deb-4093-aa3a-8f9442bae740",
         notifyButton: { enable: true },
         allowLocalhostAsSecureOrigin: true
       });
     });
   </script>
-  -->
 </head>
 <body>
 
