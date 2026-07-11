@@ -1,7 +1,7 @@
-# L'Original Halal — Site Click & Collect
+# L'Original — Site Click & Collect
 
 ## Résumé
-Site de commande en ligne pour **L'Original Halal**, snack halal à Besançon (7 rue Xavier Marmier, 25000).
+Site de commande en ligne pour **L'Original**, snack halal à Besançon (7 rue Xavier Marmier, 25000).
 Kebab · Burgers · Tacos · Assiettes · Cheesy Box. Frites et sauces maison, 100% halal.
 Commande + paiement en ligne + suivi de commande.
 

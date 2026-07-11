@@ -1,5 +1,5 @@
 /* ============================================================
-   L'Original Halal — Database (PostgreSQL / JSON fallback)
+   L'Original — Database (PostgreSQL / JSON fallback)
    ============================================================ */
 import pg from 'pg';
 import dotenv from 'dotenv';

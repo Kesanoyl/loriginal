@@ -1,7 +1,7 @@
 {
-  "name": "loriginal-halal",
+  "name": "loriginal",
   "version": "1.0.0",
-  "description": "L'Original Halal Besançon — Burgers · Tex Mex · Click & Collect",
+  "description": "L'Original Besançon — Burgers · Tex Mex · Click & Collect",
   "type": "module",
   "main": "server.js",
   "scripts": {

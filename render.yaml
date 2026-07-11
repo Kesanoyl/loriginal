@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: loriginal-halal
+    name: loriginal
     env: node
     buildCommand: npm install
     startCommand: npm start

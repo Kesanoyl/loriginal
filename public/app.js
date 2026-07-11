@@ -1,10 +1,10 @@
 /* ============================================================
-   L'ORIGINAL HALAL — app.js
+   L'ORIGINAL — app.js
    Menu · Cart · Checkout · Tracking
    ============================================================ */
 
 // ═══ DATA ═══════════════════════════════════════════════════
-// Carte L'Original Halal — 7 rue Xavier Marmier, 25000 Besançon
+// Carte L'Original — 7 rue Xavier Marmier, 25000 Besançon
 
 // Sauces maison (affiche « NOS SAUCES »)
 const SAUCES_LO = ['Blanche','Fromagère maison','Mayo','Ketchup','Algérienne','Harissa','Samouraï','BBQ','Andalouse','Sans sauce'];

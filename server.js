@@ -1,5 +1,5 @@
 /* ============================================================
-   L'Original Halal — Server (Express + Stripe + PostgreSQL)
+   L'Original — Server (Express + Stripe + PostgreSQL)
    Click & Collect avec paiement en ligne
    ============================================================ */
 import 'dotenv/config';
@@ -298,6 +298,6 @@ app.post('/api/admin/order/:number/status', async (req, res) => {
 // ─── START ────────────────────────────────────────────────
 initDB().then(() => {
   app.listen(PORT, () => {
-    console.log(`[L'Original Halal] Serveur prêt sur ${PUBLIC_URL}`);
+    console.log(`[L'Original] Serveur prêt sur ${PUBLIC_URL}`);
   });
 });
