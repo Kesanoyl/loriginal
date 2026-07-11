@@ -201,12 +201,11 @@ function initPush(){
         return abonne;
       }catch(e){ show('',true); return false; }
     };
-    // Auto-réparation : permission déjà accordée mais plus d'abonnement → on réinscrit
-    try{
-      if(OneSignal.Notifications.permission && !OneSignal.User.PushSubscription.id){
-        await OneSignal.User.PushSubscription.optIn();
-      }
-    }catch(e){}
+    // ⚠️ Ne JAMAIS appeler optIn() automatiquement au chargement : à ce moment
+    // PushSubscription.id n'est pas encore renseigné (asynchrone), donc on
+    // re-souscrivait à chaque ouverture → un abonnement en double par visite,
+    // et les notifs partaient vers des abonnements périmés. optIn() ne doit
+    // partir que sur un clic explicite de l'utilisateur (bouton ci-dessous).
     await sync();
     try{ OneSignal.User.PushSubscription.addEventListener('change',sync); }catch(e){}
 
