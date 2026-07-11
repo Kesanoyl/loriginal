@@ -176,6 +176,18 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCartUI();
   // Fiabilise le ciblage des notifs : lie l'abonnement push au numéro déjà connu
   try{ const sc=JSON.parse(localStorage.getItem('loriginal_customer')||'null'); if(sc&&sc.phone){(window.OneSignalDeferred=window.OneSignalDeferred||[]).push(o=>o.login(sc.phone.replace(/\s/g,''))); } }catch(e){}
+  // Appareil de test : ouvrir le site une fois avec ?test=1 pour le taguer
+  // "role=test" dans OneSignal (permet d'envoyer une notif à soi seul, même avec
+  // des centaines de clients abonnés). ?test=0 retire le marquage.
+  // addTag() ne crée aucun abonnement et n'appelle pas optIn() — sans effet de bord.
+  try{
+    const t = new URLSearchParams(location.search).get('test');
+    if(t==='1') localStorage.setItem('loriginal_tester','1');
+    if(t==='0') localStorage.removeItem('loriginal_tester');
+    if(localStorage.getItem('loriginal_tester')==='1'){
+      (window.OneSignalDeferred=window.OneSignalDeferred||[]).push(o=>o.User.addTag('role','test'));
+    }
+  }catch(e){}
 });
 
 // ═══ LOADER ══════════════════════════════════════════════════
